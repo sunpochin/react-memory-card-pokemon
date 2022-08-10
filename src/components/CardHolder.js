@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-// import '../styles/App.css';
+import listOfPokemon from '../pokemon-list';
 
 const CardHolder = () => {
 	const [cardIds, setCardIds] = useState([]);
@@ -61,7 +61,7 @@ const CardHolder = () => {
 	};
 
 	const cards = cardIds.map((id) => (
-		<Card key={id} id={id} clickCard={clickCard} />
+		<Card key={id} id={id} name={listOfPokemon[id]} clickCard={clickCard} />
 	));
 
 	return (
