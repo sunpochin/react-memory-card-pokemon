@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Card from './Card';
 import listOfPokemon from '../pokemon-list';
 
@@ -7,7 +7,8 @@ const CardHolder = () => {
   const [clicked, setClicked] = useState([]);
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState("");
-  // let clickedCards = [];
+	// console.log('card holder');
+  let someArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 	function randomArrayShuffle(array) {
 		var currentIndex = array.length,
@@ -22,17 +23,17 @@ const CardHolder = () => {
 		}
 		return array;
 	}
-
-  let someArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+	
 	useEffect(() => {
-		setCardIds(someArray);
+		console.log('useEffect');
 		randomArrayShuffle(someArray);
-    console.log('someArray: ', someArray);
+		console.log('someArray: ', someArray);
+		setCardIds(someArray);
 	}, []);
 	// console.log('cardIds: ', cardIds);
 
   useEffect(() => {
-    // console.log('cardIds: ', cardIds);
+		// console.log('cardIds: ', cardIds);
     console.log('clicked: ', clicked);
     console.log('score: ', score);
   }, [clicked, score]);
@@ -48,7 +49,6 @@ const CardHolder = () => {
       setClicked([]);
       return;
     }
-
     setClicked((prevClicked) => {
       return prevClicked.concat(id);
     });
@@ -61,15 +61,15 @@ const CardHolder = () => {
 	};
 
 	const cards = cardIds.map((id) => (
-		<Card key={id} id={id} name={listOfPokemon[id]} clickCard={clickCard} />
+		<Card key={id} id={id} pokeName={listOfPokemon[id]} clickCard={clickCard} />
 	));
 
 	return (
-		<div>
+		<>
 			<div className='card-holder'>{cards}</div>
 			<div className='score'>Score: {score}</div>
 			<div className='gameState'>{gameState}</div>
-		</div>
+		</>
 	);
 };
 
