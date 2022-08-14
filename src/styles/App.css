@@ -45,6 +45,8 @@ button:active {
 	margin: 10px;
 	/* text-align: center; */
 	display: flex;
+	flex-direction: column;
+
 	justify-content: center;
 	align-items: center;
 
