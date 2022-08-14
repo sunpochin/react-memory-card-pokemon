@@ -1,13 +1,11 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Card from './Card';
 import listOfPokemon from '../pokemon-list';
-
-import { Pokedex } from 'pokeapi-js-wrapper';
-const pokedex = new Pokedex();
+import CardsCollection from './cardLib';
 
 const CardHolder = () => {
 	const [isLoading, setIsLoading] = useState(true);
-	// const [cardIds, setCardIds] = useState([]);
+
 	const [cards, setCards] = useState([]);
 	const [clicked, setClicked] = useState([]);
 	const [score, setScore] = useState(0);
@@ -29,50 +27,17 @@ const CardHolder = () => {
 		return array;
 	}
 
-	const fetchPokemonApi = (ids) => {
-		console.log('ids: ', ids);
-		const pro = Promise.all(ids.map((id) => pokedex.getPokemonByName(id)));
-		return pro;
-	};
-
-const fetchCardsImgs = (cards) =>
-	Promise.all(
-		cards.map(
-			({ src }) =>
-				new Promise((resolve) => {
-					const img = new Image();
-					img.src = src;
-					img.onload = () => resolve(src);
-				})
-		)
-	);
-
-	const getCards = async (ids) => {
-		const cards = await fetchPokemonApi(ids);
-		const brief = cards.map((card) => ({
-			id: card.id,
-			name: card.name,
-			// src: card.sprites.other['official-artwork'].front_default,
-			src: card.sprites.front_default,
-		}));
-	  await fetchCardsImgs(brief);
-		setIsLoading(false);
-		console.log('cards: ', cards);
-		console.log('brief: ', brief);
-		return brief;
-	};
   const updateCards = async (ids) => {
-		const newCards = await getCards(ids);
+		const newCards = await CardsCollection.getCards(ids);
 		setCards(newCards);
 		console.log('newCards: ', newCards);
+		setIsLoading(false);
 	};
 
 	useEffect(() => {
 		console.log('useEffect');
 		randomArrayShuffle(someArray);
 		console.log('someArray: ', someArray);
-		// getCards(someArray);
-		// setCardIds(someArray);
 		updateCards(someArray);
 	}, []);
 	// console.log('cardIds: ', cardIds);
@@ -99,7 +64,6 @@ const fetchCardsImgs = (cards) =>
 		});
 		randomArrayShuffle(someArray);
 		updateCards(someArray);
-		// setCardIds(someArray);
 		setScore((prevScore) => {
 			return prevScore + 1;
 		});
@@ -107,10 +71,9 @@ const fetchCardsImgs = (cards) =>
 	};
 
 	const mappedCards = cards.map((card) => (
-		// <Card key={id} id={id} pokeName={listOfPokemon[id]} clickCard={clickCard} />
 		<Card
 			key={card.id}
-			pokeName={card.name}
+			id={card.id}
 			card={card}
 			clickCard={clickCard}
 		/>
@@ -132,20 +95,6 @@ const fetchCardsImgs = (cards) =>
 	return (
 		rend
 	);
-
-	// return (
-	// 	<div>
-	// 		{isLoading ? (
-	// 			<div className="loading">Loading...</div>
-	// 		) : (
-	// 			<div>
-	// 				<div className='card-holder'>{cards}</div>
-	// 				<div className='score'>Score: {score}</div>
-	// 				<div className='gameState'>{gameState}</div>
-	// 			</div>
-	// 		)}
-	// 	</div>
-	// );
 };
 
 export default CardHolder;
