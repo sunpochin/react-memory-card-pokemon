@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-memory-card-pokemon/static/css/main.5acafd2b.css",
-    "main.js": "/react-memory-card-pokemon/static/js/main.3b03009b.js",
+    "main.css": "/react-memory-card-pokemon/static/css/main.408aa671.css",
+    "main.js": "/react-memory-card-pokemon/static/js/main.5dc43d26.js",
     "static/js/787.d6a8b40f.chunk.js": "/react-memory-card-pokemon/static/js/787.d6a8b40f.chunk.js",
     "index.html": "/react-memory-card-pokemon/index.html",
-    "main.5acafd2b.css.map": "/react-memory-card-pokemon/static/css/main.5acafd2b.css.map",
-    "main.3b03009b.js.map": "/react-memory-card-pokemon/static/js/main.3b03009b.js.map",
+    "main.408aa671.css.map": "/react-memory-card-pokemon/static/css/main.408aa671.css.map",
+    "main.5dc43d26.js.map": "/react-memory-card-pokemon/static/js/main.5dc43d26.js.map",
     "787.d6a8b40f.chunk.js.map": "/react-memory-card-pokemon/static/js/787.d6a8b40f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5acafd2b.css",
-    "static/js/main.3b03009b.js"
+    "static/css/main.408aa671.css",
+    "static/js/main.5dc43d26.js"
   ]
 }
