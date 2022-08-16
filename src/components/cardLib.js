@@ -27,6 +27,7 @@ const getCards = async (ids) => {
 		id: card.id,
 		name: card.name,
 		// src: card.sprites.other['official-artwork'].front_default,
+		// src: card.sprites.back_default,
 		src: card.sprites.front_default,
 	}));
 	await fetchCardsImgs(brief);

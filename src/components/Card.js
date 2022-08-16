@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// const Pokedex = require('pokeapi-js-wrapper');
-// import { Pokedex } from 'pokeapi-js-wrapper';
-// const pokedex = new Pokedex();
 
 const Card = (props) => {
 	const { id, clickCard, card } = props;
