@@ -1,26 +1,19 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Card from './Card';
-//import listOfPokemon from '../pokemon-list';
+import listOfPokemon from '../pokemon-list';
 import CardsCollection from './cardLib';
 
 const CardHolder = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
-	type TypeCard = {
-		id: string;
-		name: string;
-		src: string;
-		title: string;
-	};
-
-	const [cards, setCards] = useState<TypeCard[]>([]);
+	const [cards, setCards] = useState([]);
 	const [clicked, setClicked] = useState([]);
 	const [score, setScore] = useState(0);
 	const [gameState, setGameState] = useState('');
 	// console.log('card holder');
 	let someArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-	function randomArrayShuffle(array: any[]) {
+	function randomArrayShuffle(array) {
 		var currentIndex = array.length,
 			temporaryValue,
 			randomIndex;
@@ -34,7 +27,7 @@ const CardHolder = () => {
 		return array;
 	}
 
-  const updateCards = async (ids: string[]) => {
+  const updateCards = async (ids) => {
 		const newCards = await CardsCollection.getCards(ids);
 		setCards(newCards);
 		console.log('newCards: ', newCards);
@@ -55,7 +48,7 @@ const CardHolder = () => {
 		console.log('score: ', score);
 	}, [clicked, score]);
 
-	const clickCard = (id: any) => {
+	const clickCard = (id) => {
 		console.log('clicked: ', Array(clicked));
 		const found = clicked.find((element) => element === id);
 		console.log('found: ', found);
@@ -77,7 +70,7 @@ const CardHolder = () => {
 		// console.log('click card holder: ', clicked);
 	};
 
-	const mappedCards = cards.map((card: TypeCard) => (
+	const mappedCards = cards.map((card) => (
 		<Card
 			key={card.id}
 			id={card.id}

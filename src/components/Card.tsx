@@ -30,12 +30,14 @@ const Card = ({ id, clickCard, card }: Props) => {
 
 	// https://stackoverflow.com/questions/64356404/getting-error-ts17004-cannot-use-jsx-unless-the-jsx-flag-is-provided
 	return (
-		<div className='card' onClick={clicked}>
-			<p>{card.name}</p>
-			<div>
-				<img src={card.src} alt='pokemon card' />
+		<div>
+			<div className='card' onClick={clicked}>
+				<p>{card.name}</p>
+				<div>
+					<img src={card.src} alt='pokemon card' />
+				</div>
+				{/* Card {props.id} */}
 			</div>
-			{/* Card {props.id} */}
 		</div>
 	);
 };
