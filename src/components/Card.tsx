@@ -1,7 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
-const Card = (props) => {
-	const { id, clickCard, card } = props;
+type Props = {
+	id: string;
+	clickCard: Function;
+	card: {
+		src: string;
+		name: string;
+	};
+};
+
+const Card = ({ id, clickCard, card }: Props) => {
+	// const { id, clickCard, card } = props;
 	const clicked = () => {
 		clickCard(id);
 		console.log('click card: ', id);
@@ -17,10 +26,11 @@ const Card = (props) => {
 			// // console.log(pokemonIns.sprites.front_default);
 			// setPokemon(pokemonIns.sprites.front_default);
 		})();
-	}, [props]);
+	}, []);
 
+	// https://stackoverflow.com/questions/64356404/getting-error-ts17004-cannot-use-jsx-unless-the-jsx-flag-is-provided
 	return (
-		<>
+		<div>
 			<div className='card' onClick={clicked}>
 				<p>{card.name}</p>
 				<div>
@@ -28,7 +38,7 @@ const Card = (props) => {
 				</div>
 				{/* Card {props.id} */}
 			</div>
-		</>
+		</div>
 	);
 };
 
