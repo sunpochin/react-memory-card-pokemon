@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Card from './Card';
 import listOfPokemon from '../pokemon-list';
-import CardsCollection from './cardLib';
+// import CardsCollection from './cardLib';
+import TsLib from './TsLib';
+
 
 const CardHolder = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +30,7 @@ const CardHolder = () => {
 	}
 
   const updateCards = async (ids) => {
-		const newCards = await CardsCollection.getCards(ids);
+		const newCards = await TsLib.getCards(ids);
 		setCards(newCards);
 		console.log('newCards: ', newCards);
 		setIsLoading(false);
