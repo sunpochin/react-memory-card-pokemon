@@ -19,7 +19,7 @@ const showPokemon = (pokemon: IPokemon): void => {
 };
 
 
-const getPokemon = async (id: number): Promise<void> => {
+const getPokemon = async (id: string): Promise<IPokemon> => {
 	const data: Response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 	const pokemon: any = await data.json();
 	const pokemonType: string = pokemon.types
@@ -33,12 +33,16 @@ const getPokemon = async (id: number): Promise<void> => {
 		type: pokemonType,
 	};
 
-	showPokemon(transformedPokemon);
+	// showPokemon(transformedPokemon);
+	return transformedPokemon;
 };
 
-const getCards = async () => {
-  return [];
-}
+
+const getCards = async (ids: string[]) => {
+	const cards = await Promise.all(ids.map((id) => getPokemon(id)));
+	console.log('cards: ', cards);
+	return cards;
+};
 
 const TsLib = {
 	getPokemon,

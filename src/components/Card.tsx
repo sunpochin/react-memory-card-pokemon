@@ -4,7 +4,7 @@ type Props = {
 	id: string;
 	clickCard: Function;
 	card: {
-		src: string;
+		image: string;
 		name: string;
 	};
 };
@@ -34,7 +34,7 @@ const Card = ({ id, clickCard, card }: Props) => {
 			<div className='card' onClick={clicked}>
 				<p>{card.name}</p>
 				<div>
-					<img src={card.src} alt='pokemon card' />
+					<img src={card.image} alt='pokemon card' />
 				</div>
 				{/* Card {props.id} */}
 			</div>
