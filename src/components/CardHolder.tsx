@@ -1,21 +1,21 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Card from './Card';
-import listOfPokemon from '../pokemon-list';
+// import listOfPokemon from '../pokemon-list.js';
 // import CardsCollection from './cardLib';
-import TsLib from './TsLib';
+import TsLib, { IPokemon } from './TsLib';
 
 
 const CardHolder = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
-	const [cards, setCards] = useState([]);
-	const [clicked, setClicked] = useState([]);
+	const [cards, setCards] = useState<IPokemon []>([]);
+	const [clicked, setClicked] = useState<string []>([]);
 	const [score, setScore] = useState(0);
 	const [gameState, setGameState] = useState('');
 	// console.log('card holder');
 	let someArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-	function randomArrayShuffle(array) {
+	function randomArrayShuffle(array: string[]) {
 		var currentIndex = array.length,
 			temporaryValue,
 			randomIndex;
@@ -29,7 +29,7 @@ const CardHolder = () => {
 		return array;
 	}
 
-  const updateCards = async (ids) => {
+  const updateCards = async (ids: string[]) => {
 		const newCards = await TsLib.getCards(ids);
 		setCards(newCards);
 		console.log('newCards: ', newCards);
@@ -50,7 +50,7 @@ const CardHolder = () => {
 		console.log('score: ', score);
 	}, [clicked, score]);
 
-	const clickCard = (id) => {
+	const clickCard = (id: string) => {
 		console.log('clicked: ', Array(clicked));
 		const found = clicked.find((element) => element === id);
 		console.log('found: ', found);
