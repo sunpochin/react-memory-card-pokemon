@@ -5,6 +5,7 @@
 }
 body {
 	font-family: 'Courier New', monospace;
+	background-color: grey;
 }
 input {
 	font-family: 'Courier New', monospace;
@@ -41,4 +42,13 @@ input {
 
 .instruct{
 	font-size: 20px;
+	text-align: center;
+	width: 65%;
+	margin: auto;
+}
+
+.score {
+	color: pink;
+	text-align: center;
+	font-size: 32px;
 }

@@ -87,13 +87,13 @@ const CardHolder = () => {
 				<div className='loading'>Loading...</div>
 			) : (
 				<div>
+					<div className='score'>目前分數： {score}</div>
 					{gameState == 'game over' ? (
 						<GameOverCard clickRestart={clickRestart} />
 					) : (
 						<div className='card-holder'>{mappedCards}</div>
 					)}
 
-					<div className='score'>Score: {score}</div>
 					{/* <div className='gameState'>{gameState}</div> */}
 				</div>
 			)}
