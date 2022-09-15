@@ -10,24 +10,6 @@ input {
 	font-family: 'Courier New', monospace;
 }
 
-button {
-	font-family: 'Courier New', monospace;
-	cursor: pointer;
-	text-decoration: none;
-	outline: none;
-	color: black;
-	border: rgba(97, 97, 97, 0.61) solid 1px;
-	box-shadow: 0 9px #999;
-}
-button:hover {
-	background-color: #dadada;
-}
-button:active {
-	background-color: #aaaaaa;
-	box-shadow: 0 5px #666;
-	transform: translateY(4px);
-}
-
 .card-holder {
 	display: flex;
 	flex-direction: row;
@@ -55,4 +37,8 @@ button:active {
 	box-shadow: 5px 5px #888;
 
 	cursor: pointer;
+}
+
+.instruct{
+	font-size: 20px;
 }

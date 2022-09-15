@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# A React.js memory card game 
 
 ## Installation
+```
 git clone git@github.com:sunpochin/react-memory-card-pokemon.git
 cd react-memory-card-pokemon
-npm i
+
+npm install
 npm start
+```
 ## Live demo
 https://sunpochin.github.io/react-memory-card-pokemon/
 

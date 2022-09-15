@@ -1,0 +1,41 @@
+.gameOver {
+	display: flex;
+	flex-direction: column;
+
+	background-color: pink;
+	color: blue;
+	font-size: 23px;
+	border: 2px solid green;
+}	
+
+button {
+	height: 5rem;
+	border-radius: 20px;
+}
+button {
+	font-family: 'Courier New', monospace;
+	cursor: pointer;
+	text-decoration: none;
+	outline: none;
+	color: black;
+	border: rgba(97, 97, 97, 0.61) solid 1px;
+	box-shadow: 5px 5px #999;
+	width: 80%;
+	margin: auto;
+}
+button:hover {
+	background-color: #dadada;
+}
+button:active {
+	background-color: #aaaaaa;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+
+
+@media only screen and (max-width: 480px) {
+	.header {
+		font-size: 16px;
+	}
+}
