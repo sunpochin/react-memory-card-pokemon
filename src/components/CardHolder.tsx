@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import Card from './Card';
 // import listOfPokemon from '../pokemon-list.js';
 // import CardsCollection from './cardLib';
@@ -6,6 +6,9 @@ import TsLib, { IPokemon } from './TsLib';
 import GameOverCard from './GameOverCard';
 
 const CardHolder = () => {
+	// const [renderCount, setRenderCount] = useState(0);
+	const renderCount = useRef(0); // { current: 0 }
+
 	const [isLoading, setIsLoading] = useState(true);
 
 	const [cards, setCards] = useState<IPokemon[]>([]);
@@ -35,6 +38,12 @@ const CardHolder = () => {
 		console.log('newCards: ', newCards);
 		setIsLoading(false);
 	};
+
+	useEffect(() => {
+		console.log('renderCount: ', renderCount);
+		renderCount.current += 1;
+		// setRenderCount((prev) => prev + 1);
+	});
 
 	useEffect(() => {
 		console.log('useEffect');
@@ -78,11 +87,11 @@ const CardHolder = () => {
 	const clickRestart = () => {
 		setGameState('playing');
 		setScore(0);
-
-	}
+	};
 
 	const rend = (
 		<div>
+			<p>renderCount: {renderCount.current}</p>
 			{isLoading ? (
 				<div className='loading'>Loading...</div>
 			) : (
@@ -100,6 +109,6 @@ const CardHolder = () => {
 		</div>
 	);
 	return rend;
-};
+};;
 
 export default CardHolder;
